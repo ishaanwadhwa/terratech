@@ -1,6 +1,9 @@
 import { Button } from "../components/ui/button";
 
-export function TerraBytePlatform() {
+interface TerraBytePlatformProps {
+  isHomePage?: boolean;
+}
+export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps) {
   return (
     <section className="container py-24 bg-muted/50">
       <div className="mx-auto max-w-3xl text-center">
@@ -8,7 +11,7 @@ export function TerraBytePlatform() {
           Powered by TerraByte IoT
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
-          State-of-the-art Industry 4.0 Cloud Platform
+          {isHomePage ? "State-of-the-art Industry 4.0 Cloud Platform" : "Powered by TerraByte IoT, our state-of-the-art platform delivers real-time monitoring, control, and analytics across diverse sectors. With AI-driven insights and cloud integration, TerraByte optimizes energy use, reduces waste, and ensures operational excellence"}
         </p>
       </div>
       <div className="mx-auto mt-16 max-w-3xl text-center space-y-8">
@@ -22,9 +25,11 @@ export function TerraBytePlatform() {
         <p className="text-lg text-muted-foreground">
           Scalable Across Urban & Rural Environments
         </p>
-        <Button size="lg" asChild>
-          <a href="/platform">Explore TerraByte Platform</a>
-        </Button>
+        {isHomePage && (
+          <Button size="lg" asChild>
+            <a href="/platform">Explore TerraByte Platform</a>
+          </Button>
+        )}
       </div>
     </section>
   );

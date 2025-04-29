@@ -1,7 +1,10 @@
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 
-export function WhatWeDo() {
+interface WhoWeAreProps {
+  isHomePage?: boolean;
+}
+export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
   const services = [
     {
       title: "Renewable Energy",
@@ -27,6 +30,9 @@ export function WhatWeDo() {
         <p className="mt-4 text-lg text-muted-foreground">
           Comprehensive solutions for a sustainable future
         </p>
+        {!isHomePage && (<p className="mt-4 text-lg text-muted-foreground">
+          TerraTech focuses on creating smart, efficient, and sustainable environments with advanced technology. From renewable energy solutions to smart city automation, we integrate real-time monitoring and optimization to reduce environmental impact and enhance operational efficiency.
+        </p>)}
       </div>
       <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
@@ -43,11 +49,13 @@ export function WhatWeDo() {
           </Card>
         ))}
       </div>
-      <div className="mt-12 text-center">
-        <Button size="lg" asChild>
-          <a href="/solutions">View Our Solutions</a>
-        </Button>
-      </div>
+      {isHomePage && (
+        <div className="mt-12 text-center">
+          <Button size="lg" asChild>
+            <a href="/solutions">View Our Solutions</a>
+          </Button>
+        </div>
+      )}
     </section>
   );
 } 

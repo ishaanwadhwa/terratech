@@ -16,9 +16,9 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <WhoWeAre />
-      <WhatWeDo />
-      <TerraBytePlatform />
+      <WhoWeAre isHomePage={true} />
+      <WhatWeDo isHomePage={true} />
+      <TerraBytePlatform isHomePage={true} />
       <Industries />
       <SustainabilityImpact />
       <CaseStudies />
