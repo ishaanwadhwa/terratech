@@ -1,8 +1,44 @@
+import emailjs from "@emailjs/browser";
+import {useRef} from "react"
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
+import { useToast } from "@/hooks/use-toast"
 
 export function ContactSection() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast()
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_8babmim",    // 🔁 Replace with your actual service ID
+        "template_i7hqe8q",   // 🔁 Replace with your actual template ID
+        formRef.current!,
+        "SUlPi3Tti5urH13Ld"     // 🔁 Replace with your actual public key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent:", result.text);
+          toast({
+            title: "Success!",
+            description: "Message sent successfully!"
+          })
+          formRef.current?.reset(); // Optional: reset form after success
+        },
+        (error) => {
+          console.error("Email send error:", error.text);
+          toast({
+            variant: "destructive",
+            title: "Error!",
+            description: "Failed to send message. Please try again."
+          })
+        }
+      );
+  };
+
   return (
     <section className="container py-24">
       <div className="mx-auto max-w-2xl text-center">
@@ -12,15 +48,15 @@ export function ContactSection() {
         </p>
       </div>
       <div className="mx-auto mt-16 max-w-xl">
-        <form className="space-y-6">
+        <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input placeholder="Name" />
-            <Input type="email" placeholder="Email" />
+            <Input name="from_name" placeholder="Name" required/>
+            <Input name="from_email" placeholder="Email" required/>
           </div>
-          <Input placeholder="Company" />
-          <Textarea placeholder="Message" className="min-h-[150px]" />
+          <Input name="from_company" placeholder="Company" />
+          <Textarea name="message" placeholder="Message" className="min-h-[150px]" required/>
           <div className="flex gap-4">
-            <Button className="flex-1">Send Message</Button>
+            <Button type="submit" className="flex-1">Send Message</Button>
             <Button variant="outline" className="flex-1">
               Connect on LinkedIn
             </Button>

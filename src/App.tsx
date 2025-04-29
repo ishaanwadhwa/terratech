@@ -10,6 +10,7 @@ import { CaseStudies } from "./components/CaseStudies";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { Toaster } from "@/components/ui/toaster"
 import "./App.css";
 
 function HomePage() {
@@ -42,6 +43,7 @@ function App() {
       </Routes>
       <Footer />
       <ScrollToTop />
+      <Toaster />
     </Router>
   );
 }
