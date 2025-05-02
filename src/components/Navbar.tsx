@@ -13,8 +13,8 @@ import {
 } from "../components/ui/sheet";
 import { buttonVariants } from "../components/ui/button";
 import { Menu } from "lucide-react";
-import { ModeToggle } from "./mode-toggle";
 import { LogoIcon } from "./Icons";
+import { ModeToggle } from "./mode-toggle";
 
 interface RouteProps {
   href: string;
