@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 
 // replace 'your-repo-name' with your actual GitHub repository name
 export default defineConfig({
-  base: '/terratech/',
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
