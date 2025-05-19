@@ -127,7 +127,7 @@ export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
       </div>
       <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <Card key={service.title} className="cursor-pointer hover:shadow-lg transition-shadow">
+          <Card key={service.title} className="cursor-pointer">
             {service.popupContent ? (
               <Dialog>
                 <DialogTrigger asChild>

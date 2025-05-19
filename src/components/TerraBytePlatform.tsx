@@ -49,7 +49,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
         <h2 className="text-2xl font-semibold text-muted-foreground mb-8">
           AI-Powered Sustainability IoT Platform Built for the Future
         </h2>
-        <div className="relative w-full rounded-lg overflow-hidden mb-8 bg-muted/50 p-4">
+        <div className="relative w-full rounded-lg overflow-hidden mb-8 bg-muted/50 p-4 transition-all duration-300 hover:shadow-lg">
           <img
             src={terrabyteImage1}
             alt="Terra-Byte.ai Platform Interface"
@@ -70,7 +70,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
         
         <div className="grid gap-8 md:grid-cols-2">
           {/* Real-Time Monitoring Card */}
-          <Card>
+          <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
             <CardHeader>
               <CardTitle>Real-Time Monitoring & Control</CardTitle>
             </CardHeader>
@@ -98,7 +98,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
           </Card>
 
           {/* AI-Powered Analytics Card */}
-          <Card>
+          <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
             <CardHeader>
               <CardTitle>AI-Powered Analytics & Predictive Insights</CardTitle>
             </CardHeader>
@@ -125,7 +125,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
           </Card>
 
           {/* Scale and Performance Card */}
-          <Card>
+          <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
             <CardHeader>
               <CardTitle>Built for Scale and Performance</CardTitle>
             </CardHeader>
@@ -148,7 +148,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
           </Card>
 
           {/* Data Visualization Card */}
-          <Card>
+          <Card className="transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
             <CardHeader>
               <CardTitle>Powerful Data Visualization</CardTitle>
             </CardHeader>
@@ -207,7 +207,7 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
               </ul>
             </div>
           </div>
-          <div className="relative w-full rounded-lg overflow-hidden bg-muted/50 p-4">
+          <div className="relative w-full rounded-lg overflow-hidden bg-muted/50 p-4 transition-all duration-300 hover:shadow-lg">
             <img
               src={terrabyteImage2}
               alt="Terra-Byte.ai Platform Benefits"
