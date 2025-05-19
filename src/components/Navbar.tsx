@@ -47,10 +47,6 @@ const routeList: RouteProps[] = [
     label: "Case Studies",
   },
   {
-    href: "/insights",
-    label: "Insights",
-  },
-  {
     href: "/contact",
     label: "Contact",
   },
