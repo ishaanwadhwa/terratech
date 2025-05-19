@@ -25,6 +25,15 @@ export function SustainabilityImpact() {
     },
   ];
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/Terratech | Industry Use Cases.pdf';
+    link.download = 'Terratech | Industry Use Cases.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="container py-24 bg-muted/50">
       <div className="mx-auto max-w-3xl text-center">
@@ -54,7 +63,14 @@ export function SustainabilityImpact() {
       </div>
       <div className="mt-12 text-center">
         <Button size="lg" asChild>
-          <a href="/sustainability">Download Impact Snapshot</a>
+          <a 
+            href="/Terratech | Industry Use Cases.pdf" 
+            download="Terratech | Industry Use Cases.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Impact Snapshot
+          </a>
         </Button>
       </div>
     </section>
