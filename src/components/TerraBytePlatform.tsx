@@ -82,15 +82,15 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Edge-to-Cloud Integration: Seamlessly stream data from IoT devices to the cloud</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Instant Data Access: Receive real-time updates and track performance</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Custom Dashboards: Personalize your user experience</span>
                 </li>
               </ul>
@@ -109,15 +109,15 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Predictive Maintenance: Identify potential failures before they occur</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Energy Optimization: Monitor energy usage in real time</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Continuous Improvement: Machine learning capabilities for better predictions</span>
                 </li>
               </ul>
@@ -136,11 +136,11 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Scalable Infrastructure: Handle massive data streams with ease</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Event-Driven Architecture: Real-time data ingestion and processing</span>
                 </li>
               </ul>
@@ -159,15 +159,15 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Interactive Dashboards: View key metrics and trends in real time</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Custom Alerts: Set up personalized alerts for key metrics</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Comprehensive Reporting: Track and report on key metrics</span>
                 </li>
               </ul>
@@ -189,19 +189,19 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
             <div className="space-y-2">
               <ul className="space-y-2">
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Maximize resource efficiency and reduce waste</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Improve operational uptime through predictive maintenance</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Lower energy consumption and reduce your carbon footprint</span>
                 </li>
                 <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 mt-1" />
+                  <Check className="h-5 w-5 text-white mr-2 mt-1" />
                   <span>Ensure compliance with environmental and regulatory standards</span>
                 </li>
               </ul>

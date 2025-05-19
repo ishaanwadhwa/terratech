@@ -56,10 +56,12 @@ export function ContactSection() {
           <Input name="from_company" placeholder="Company" />
           <Textarea name="message" placeholder="Message" className="min-h-[150px]" required/>
           <div className="flex gap-4">
-            <Button type="submit" className="flex-1">Send Message</Button>
-            <Button variant="outline" className="flex-1">
-              Connect on LinkedIn
-            </Button>
+            <Button type="submit" className="w-1/2">Send Message</Button>
+            <a href="https://www.linkedin.com/company/terratech-fzco/" target="_blank" rel="noopener noreferrer" className="w-1/2">
+              <Button variant="outline" className="w-full" type="button">
+                Connect on LinkedIn
+              </Button>
+            </a>
           </div>
         </form>
         <div className="mt-8 text-center text-sm text-muted-foreground">
