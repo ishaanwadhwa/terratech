@@ -33,15 +33,6 @@ export function SustainabilityImpact() {
     },
   ];
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/Terratech | Industry Use Cases.pdf';
-    link.download = 'Terratech | Industry Use Cases.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section className="container py-24 bg-muted/50">
       <div className="mx-auto max-w-3xl text-center">
