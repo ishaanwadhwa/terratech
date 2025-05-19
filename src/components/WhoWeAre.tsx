@@ -1,5 +1,5 @@
 import { Button } from "../components/ui/button";
-import founderImage from "../assets/founder.jpeg";
+import founderImage from "../assets/founder1.jpeg";
 
 interface WhoWeAreProps {
   isHomePage?: boolean;
@@ -67,12 +67,12 @@ export function WhoWeAre({ isHomePage = false }: WhoWeAreProps) {
       {!isHomePage && (
         <div className="mt-24">
           <div className="mx-auto max-w-4xl">
-            <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-              <div className="relative aspect-square overflow-hidden rounded-lg">
+            <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-stretch">
+              <div className="relative h-[80%] my-auto flex items-stretch overflow-hidden rounded-lg">
                 <img
                   src={founderImage}
                   alt="Mukesh Arora - Founder of TerraTech"
-                  className="h-full w-full object-cover"
+                  className="h-full w-auto max-w-full object-contain"
                 />
               </div>
               <div className="flex flex-col justify-center space-y-6">

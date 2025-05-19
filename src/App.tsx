@@ -20,7 +20,7 @@ function HomePage() {
       <WhoWeAre isHomePage={true} />
       <WhatWeDo isHomePage={true} />
       <TerraBytePlatform isHomePage={true} />
-      <Industries />
+      <Industries isHomePage={true} />
       <SustainabilityImpact />
       <CaseStudies />
       <ContactSection />

@@ -24,12 +24,13 @@ export function TerraBytePlatform({ isHomePage = false }: TerraBytePlatformProps
         <div className="flex justify-center gap-8 text-lg font-medium">
           <span>Real-time Monitoring</span>
           <span>|</span>
-          <span>Control</span>
+          <span>Remote Control</span>
           <span>|</span>
-          <span>Optimization</span>
+          <span>AI-Driven Optimization</span>
         </div>
         <p className="text-lg text-muted-foreground">
-          Scalable Across Urban & Rural Environments
+        Built for Scalability Across Urban and Rural Environments,
+        the TerraByte Sustainability IoT Platform connects energy, infrastructure, and industry—turning data into action.
         </p>
           <Button size="lg" asChild>
             <a href="/platform">Explore TerraByte Platform</a>

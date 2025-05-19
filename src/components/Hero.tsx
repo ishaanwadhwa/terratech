@@ -28,11 +28,11 @@ export function Hero() {
           that enables smarter and greener decision-making.
         </p>
       </div>
-      <div className="flex gap-4">
-        <Button size="lg" asChild>
+      <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[980px] px-4 items-center justify-center">
+        <Button size="lg" asChild className="w-full sm:w-auto whitespace-nowrap">
           <a href="/platform">Explore Our Sustainability Platform</a>
         </Button>
-        <Button size="lg" variant="outline" asChild>
+        <Button size="lg" variant="outline" asChild className="w-full sm:w-auto whitespace-nowrap">
           <a href="/contact">Contact Us</a>
         </Button>
       </div>
