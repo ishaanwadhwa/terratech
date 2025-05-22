@@ -1,5 +1,5 @@
 import { Button } from "../components/ui/button";
-import heroImage from "../assets/terra-tech-hero.jpeg";
+import heroImage from "../assets/terra-tech-hero.png";
 
 export function Hero() {
   return (
