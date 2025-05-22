@@ -22,7 +22,6 @@ function HomePage() {
       <TerraBytePlatform isHomePage={true} />
       <Industries isHomePage={true} />
       <SustainabilityImpact />
-      <CaseStudies />
       <ContactSection />
     </>
   );
@@ -38,7 +37,6 @@ function App() {
         <Route path="/solutions" element={<WhatWeDo />} />
         <Route path="/platform" element={<TerraBytePlatform />} />
         <Route path="/industries" element={<Industries />} />
-        <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/contact" element={<ContactSection />} />
       </Routes>
       <Footer />

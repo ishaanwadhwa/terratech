@@ -1,6 +1,11 @@
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 
+// Import your images (update filenames as needed)
+import renewableEnergyImg from "../assets/industries/energy-utilities.jpeg";
+import smartIndustryImg from "../assets/whatwedo/smart-industry.jpeg";
+import digitalSustainabilityImg from "../assets/whatwedo/digital-sustainibility.jpeg";
+
 interface WhoWeAreProps {
   isHomePage?: boolean;
 }
@@ -9,6 +14,7 @@ export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
   const services = [
     {
       title: "Renewable Energy",
+      image: renewableEnergyImg,
       description: "Smart Monitoring • Grid Integration • Energy Optimization",
       icon: "🔋",
       content: (
@@ -32,6 +38,7 @@ export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
     },
     {
       title: "Smart Industry",
+      image: smartIndustryImg,
       description: "IoT Connectivity • Industrial Automation • Predictive AI",
       icon: "🧠",
       content: (
@@ -55,6 +62,7 @@ export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
     },
     {
       title: "Digital Sustainability",
+      image: digitalSustainabilityImg,
       description: "ESG Insights • Compliance Automation • Green Infrastructure",
       icon: "🌍",
       content: (
@@ -110,20 +118,30 @@ export function WhatWeDo({ isHomePage = false }: WhoWeAreProps) {
       </div>
       <div className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
-          <Card key={service.title} className="hover:shadow-md transition-all duration-200">
-            <CardHeader>
-              <div className="text-4xl mb-2">{service.icon}</div>
-              <CardTitle>{service.title}</CardTitle>
-              <CardDescription className="text-base">
-                {service.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-muted-foreground text-sm">
-                {service.content}
+          <div
+            key={service.title}
+            className="relative rounded-xl overflow-hidden shadow-lg h-[600px]"
+          >
+            {service.image && (
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
+            <div className="absolute inset-0 bg-black/40 z-0" />
+
+            <div className="absolute left-0 bottom-0 w-full h-[50%] z-10 p-6 text-white overflow-hidden">
+              <div className="h-full flex flex-col justify-end">
+                {!isHomePage && service.icon && (<div className="text-4xl mb-2">{service.icon}</div>)}
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-base mb-4">{service.description}</p>
+                <div className="text-sm overflow-y-auto">
+                  {service.content}
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
       {isHomePage && (
