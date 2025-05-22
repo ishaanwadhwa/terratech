@@ -2,7 +2,7 @@ import { Button } from "../components/ui/button";
 import { buttonVariants } from "./ui/button";
 import { HeroCards } from "./HeroCards";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import heroImage from "../assets/terra-tech-hero.jpeg";
+import heroImage from "../assets/terratech-hero.jpg";
 
 export function Hero() {
   return (
