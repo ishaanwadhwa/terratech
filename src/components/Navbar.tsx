@@ -14,7 +14,6 @@ import {
 import { buttonVariants } from "../components/ui/button";
 import { Menu } from "lucide-react";
 import { LogoIcon } from "./Icons";
-import { ModeToggle } from "./mode-toggle";
 
 interface RouteProps {
   href: string;
@@ -57,22 +56,40 @@ export const Navbar = () => {
   return (
     <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto">
-        <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
-          <NavigationMenuItem className="font-bold flex">
+        <NavigationMenuList className="container h-14 px-4 w-screen flex items-center">
+          {/* Left: Logo and company name */}
+          <div className="flex items-center" style={{ minWidth: 180, maxWidth: 180 }}>
             <a
               rel="noreferrer noopener"
               href="/"
-              className="ml-2 font-bold text-xl flex"
+              className="ml-2 font-bold text-xl flex items-center"
             >
               <LogoIcon />
               TerraTech
             </a>
-          </NavigationMenuItem>
+          </div>
 
-          {/* mobile */}
+          {/* Center: Nav links (desktop) */}
+          <nav className="hidden md:flex flex-1 justify-center gap-8">
+            {routeList.map((route: RouteProps, i) => (
+              <a
+                rel="noreferrer noopener"
+                href={route.href}
+                key={i}
+                className={`text-[17px] ${buttonVariants({
+                  variant: "ghost",
+                })}`}
+              >
+                {route.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right: Placeholder for alignment (was ModeToggle) */}
+          <div className="hidden md:flex" style={{ minWidth: 180, maxWidth: 180 }}></div>
+
+          {/* Mobile menu */}
           <span className="flex md:hidden">
-            <ModeToggle />
-
             <Sheet
               open={isOpen}
               onOpenChange={setIsOpen}
@@ -108,26 +125,6 @@ export const Navbar = () => {
               </SheetContent>
             </Sheet>
           </span>
-
-          {/* desktop */}
-          <nav className="hidden md:flex gap-2">
-            {routeList.map((route: RouteProps, i) => (
-              <a
-                rel="noreferrer noopener"
-                href={route.href}
-                key={i}
-                className={`text-[17px] ${buttonVariants({
-                  variant: "ghost",
-                })}`}
-              >
-                {route.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex gap-2">
-            <ModeToggle />
-          </div>
         </NavigationMenuList>
       </NavigationMenu>
     </header>

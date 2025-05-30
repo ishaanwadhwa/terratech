@@ -6,7 +6,6 @@ import { WhatWeDo } from "./components/WhatWeDo";
 import { TerraBytePlatform } from "./components/TerraBytePlatform";
 import { Industries } from "./components/Industries";
 import { SustainabilityImpact } from "./components/SustainabilityImpact";
-import { CaseStudies } from "./components/CaseStudies";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
