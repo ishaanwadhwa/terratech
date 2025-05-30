@@ -1,6 +1,6 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { Button } from "../components/ui/button";
-import { Card } from "../components/ui/card";
+// import { Card } from "../components/ui/card"; // Remove or comment out this line
 
 // Import your images (update filenames as needed)
 import smartCitiesImg from "../assets/industries/smart-cities.jpeg";
@@ -34,73 +34,78 @@ interface IndustriesProps {
   isHomePage?: boolean;
 }
 
+// Define the type for an industry object
+interface Industry {
+  title: string;
+  image: string; // Assuming image is a string path or imported module
+  description: string;
+  description2: string;
+  useCases?: string[]; // Optional array
+  valueDelivered?: string[]; // Optional array
+}
+
+// Define the props for the IndustryCard sub-component
+interface IndustryCardProps {
+  industry: Industry;
+  isHomePage: boolean;
+}
+
 // Sub-component for individual Industry Cards
-const IndustryCard = ({ industry, isHomePage }) => {
-  const isMobile = useIsMobile(); // Determine mobile state for this specific card instance
-  // On desktop, start not expanded (false). On mobile, start expanded (true).
+// *** Added types for props ***
+const IndustryCard: React.FC<IndustryCardProps> = ({ industry, isHomePage }) => {
+  const isMobile = useIsMobile(); // Assume useIsMobile is correctly implemented elsewhere
   const [expanded, setExpanded] = useState(isMobile);
-  const [height, setHeight] = useState('auto'); // Start with auto height or initial calculated height
-  const contentRef = useRef(null); // Ref to measure the content's height
+  const [height, setHeight] = useState('auto');
+  // *** Typed the ref ***
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  // Height when the card is collapsed on desktop (only description visible)
-  const collapsedHeight = 120;
+  const collapsedHeight = 120; // ADJUST THIS VALUE if description1 is still cut off
+  const heightBuffer = 20; // Add buffer to the calculated height
 
-  // --- Define the buffer for expanded height ---
-  const heightBuffer = 35; // Add 35px buffer to the calculated height
-
-  // Effect to set the expanded state initially based on mobile status
   useLayoutEffect(() => {
-     setExpanded(isMobile); // Always expanded on mobile, collapsed on desktop initially
-  }, [isMobile]); // Re-run if isMobile state changes
+     setExpanded(isMobile);
+  }, [isMobile]);
 
-  // Effect to measure content height and update the 'height' state for animation
   useLayoutEffect(() => {
     if (contentRef.current) {
       const currentContentHeight = contentRef.current.scrollHeight;
-      // If expanded (desktop hover or mobile) or on mobile, set height to fit content PLUS BUFFER.
-      // Otherwise (desktop not-hovered), set to collapsed height.
       if (expanded || isMobile) {
-        // Use the full measured height PLUS BUFFER for expanded state
         setHeight(`${currentContentHeight + heightBuffer}px`);
       } else {
-        // Use the adjusted collapsed height for desktop not-hovered
         setHeight(`${collapsedHeight}px`);
       }
     }
-    // Re-measure if expanded state changes, isMobile changes, or content changes.
-    // Also re-measure if the window is resized while expanded on desktop.
-  }, [expanded, isMobile, industry.description, industry.description2]); // Include dependencies that affect content size
+  }, [expanded, isMobile, industry.description, industry.description2]);
 
-  // Event handlers for desktop hover/focus (disabled on mobile)
+
   const handleMouseEnter = () => !isMobile && setExpanded(true);
   const handleMouseLeave = () => !isMobile && setExpanded(false);
-  const handleFocus = () => !isMobile && setExpanded(true); // For accessibility via keyboard
-  const handleBlur = () => !isMobile && setExpanded(false); // For accessibility
+  const handleFocus = () => !isMobile && setExpanded(true);
+  const handleBlur = () => !isMobile && setExpanded(false);
 
-  // *** Logic to remove emoji if on home page ***
   const displayTitle = isHomePage
-    ? industry.title.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim()
+    ? industry.title.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim()
     : industry.title;
+
 
   return (
     <div
-      key={industry.title}
+      key={industry.title} // Use original title as key
       className="relative rounded-xl overflow-hidden shadow-lg h-[480px] group" // Card container fixed height
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus} // Add focus handlers for keyboard navigation
+      onFocus={handleFocus}
       onBlur={handleBlur}
-      tabIndex={0} // Make the card focusable
+      tabIndex={0}
     >
       {/* Background Image */}
       {industry.image && (
         <img
           src={industry.image}
-          alt={displayTitle}
+          alt={displayTitle} // Use displayTitle for alt text
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
-      {/* Optional: dark overlay for readability */}
       <div className="absolute inset-0 bg-black/40 z-0" />
 
       {/* Animated Overlay */}
@@ -110,17 +115,15 @@ const IndustryCard = ({ industry, isHomePage }) => {
           bg-background/80 backdrop-blur-md p-6 rounded-t-xl overflow-hidden
         `}
         style={{
-          // --- PRIMARY PLACE FOR TRANSITION AND HEIGHT ---
-          height: height, // Use the calculated or fixed height
-          transition: "height 0.8s cubic-bezier(0.4, 0, 0.2, 1)", // Smooth transition defined here
-          // -----------------------------------------------
+          height: height,
+          transition: "height 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
          {/* Inner container to measure content height */}
-         <div ref={contentRef} className="w-full">
+         {/* *** Typed the ref attribute *** */}
+         <div ref={contentRef as React.RefObject<HTMLDivElement>} className="w-full">
             <h3 className="text-xl font-bold mb-2">{displayTitle}</h3>
             <p className="text-muted-foreground mb-2">{industry.description}</p>
-            {/* description2 is only rendered if expanded (desktop hover) or on mobile */}
             {(expanded || isMobile) && industry.description2 && (
               <p
                 className="text-muted-foreground mt-2"
@@ -267,52 +270,55 @@ export function Industries({ isHomePage = false }: IndustriesProps) {
   }
 
   return (
-    <section className="container py-24">
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          How TerraByte.ai Powers Sustainable Innovation Across Industries
-        </h1>
-        <p className="mt-6 text-lg text-muted-foreground">
-          Discover how our Sustainability IoT Platform helps organizations transform operations, reduce environmental impact, and achieve measurable outcomes.
-        </p>
+    <>
+      <div className="w-full bg-slate-100 dark:bg-muted py-16 px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            How TerraByte.ai Powers Sustainable Innovation Across Industries
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground">
+            Discover how our Sustainability IoT Platform helps organizations transform operations, reduce environmental impact, and achieve measurable outcomes.
+          </p>
+        </div>
       </div>
-      <div className="mx-auto mt-16 max-w-5xl space-y-16">
-        {industries.map((industry) => (
-          <div key={industry.title} className="space-y-8">
-            <div className="border-b pb-8">
-              <h2 className="text-3xl font-bold mb-4">{industry.title}</h2>
-              <p className="text-lg text-muted-foreground mb-4">{industry.description}</p>
-              {industry.description2 && (
-                <p className="text-lg text-muted-foreground" dangerouslySetInnerHTML={{ __html: industry.description2 }} />
-              )}
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Use Cases:</h3>
-                <ul className="space-y-3">
-                  {industry.useCases.map((useCase, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>{useCase}</span>
-                    </li>
-                  ))}
-                </ul>
+      <section className="container py-24">
+        <div className="mx-auto mt-0 grid max-w-6xl gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {industries.map((industry) => (
+            <div key={industry.title} className="bg-white/80 dark:bg-muted/80 rounded-xl shadow-md overflow-hidden flex flex-col h-full">
+              {/* Image at the top */}
+              <img
+                src={industry.image}
+                alt={industry.title}
+                className="w-full h-48 object-cover"
+              />
+              {/* Text content below */}
+              <div className="p-6 flex flex-col flex-1">
+                <h2 className="text-2xl font-bold mb-2">{industry.title.replace(/^[^\w]+/, '')}</h2>
+                <p className="text-base text-muted-foreground mb-4">{industry.description}</p>
+                {industry.description2 && (
+                  <p className="text-base text-muted-foreground mb-4" dangerouslySetInnerHTML={{ __html: industry.description2 }} />
+                )}
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold mb-2">Use Cases:</h3>
+                  <ul className="list-disc list-inside space-y-1 text-sm">
+                    {industry.useCases?.map((useCase, idx) => (
+                      <li key={idx}>{useCase}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold mb-2">Value Delivered:</h3>
+                  <ul className="list-disc list-inside text-sm">
+                    {industry.valueDelivered?.map((value, idx) => (
+                      <li key={idx}>{value}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Value Delivered:</h3>
-                <ul className="space-y-3">
-                  {industry.valueDelivered.map((value, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2">✔️</span>
-                      <span>{value}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </>
   );
 } 

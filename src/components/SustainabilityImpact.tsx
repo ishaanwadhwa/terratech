@@ -56,8 +56,7 @@ export function SustainabilityImpact() {
       <div className="mt-12 text-center">
         <Button size="lg" asChild>
           <a 
-            href="/Terratech | Industry Use Cases.pdf" 
-            download="Terratech | Industry Use Cases.pdf"
+            href="/Terratech | Industry Use Cases.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
