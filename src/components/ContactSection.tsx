@@ -14,10 +14,10 @@ export function ContactSection() {
 
     emailjs
       .sendForm(
-        "service_8babmim",    // 🔁 Replace with your actual service ID
-        "template_i7hqe8q",   // 🔁 Replace with your actual template ID
+        "service_j1qz1gg",    // 🔁 Replace with your actual service ID
+        "template_41nqm9d",   // 🔁 Replace with your actual template ID
         formRef.current!,
-        "SUlPi3Tti5urH13Ld"     // 🔁 Replace with your actual public key
+        "5GyBdROAIKS0-YaF2"     // 🔁 Replace with your actual public key
       )
       .then(
         (result) => {
