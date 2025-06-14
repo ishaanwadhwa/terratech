@@ -84,7 +84,7 @@ export function WhoWeAre({ isHomePage = false }: WhoWeAreProps) {
                   />
                   <div className="text-center md:text-left">
                     <h3 className="text-xl font-bold">Mukesh Arora</h3>
-                    <p className="text-muted-foreground">Founder & CEO, TerraTech FZCO, Dubai</p>
+                    <p className="text-muted-foreground">Co-Founder & CEO</p>
                   </div>
                 </div>
                 <div className="text-sm text-muted-foreground space-y-4 mt-6">
