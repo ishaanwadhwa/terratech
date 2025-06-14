@@ -1,7 +1,5 @@
 import { Button } from "../components/ui/button";
 import founderImage from "../assets/founder1.jpeg";
-import { Statistics } from "./Statistics";
-import pilot from "../assets/pilot.png";
 import founder2 from "../assets/founder2.jpeg";
 
 interface WhoWeAreProps {
